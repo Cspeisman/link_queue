@@ -1,0 +1,14 @@
+Welcome Home
+<div>
+  <%= link_to "Find users", users_search_path  %>
+</div>
+<% @friends.each do |friend| %>
+<div>
+	<p><%= friend.username %></p>
+</div>
+
+<% @requests.each do |request| %>
+	<%=  request.username %>
+<% end %>
+
+<% end %>
