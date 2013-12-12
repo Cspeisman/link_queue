@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def accepted_friends
+    # YOU LEFT OFF HERE
+    # friendships.where(friendship_accepted: tue)
+  end
+
   def password
     @password ||= Password.new(password_hash)
   end

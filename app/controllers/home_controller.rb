@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	def index
-		if !session[:user_id]
+		if !current_user
 			redirect_to log_in_path
 		else
 			@friends = current_user.friends
