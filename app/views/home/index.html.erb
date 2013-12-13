@@ -1,14 +1,14 @@
 Welcome Home
-<div>
-  <%= link_to "Find users", users_search_path  %>
-</div>
-<% @friends.each do |friend| %>
-<div>
-	<p><%= friend.username %></p>
-</div>
+	<div>
+	  <%= link_to "Find users", users_search_path  %>
+	</div>
 
-<% @requests.each do |request| %>
-	<%=  request.username %>
-<% end %>
+	<div>
+		<% @friends.each do |friend| %>
+				<p><%= friend.username %></p>
+		<% end %>
 
-<% end %>
+		<% @requests.each do |request| %>
+			<%=  request.username %>
+		<% end %>
+	</div>

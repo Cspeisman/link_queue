@@ -18,4 +18,5 @@ class Friendship < ActiveRecord::Base
 		flashp[:notice] = "Successfully destroyed friendship"
 		redirect_to root_url
 	end
+
 end

@@ -18,8 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def accepted_friends
-    # YOU LEFT OFF HERE
-    # friendships.where(friendship_accepted: tue)
+    self.friendships.where(friendship_accepted: true).map {|x| User.find(x.friend_id)}
   end
 
   def password
