@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 
 	def create_friendship
 		friend_id = params[:friend_id]
-		friendship = Friendship.where(user_id: current_user.id, friend_id: friend_id)
+		friendship = Friendship.where(user_id: current_user.id, friend_id: friend_id).first
 		friendship.accept_friendship
 		redirect_to root_url
 	end

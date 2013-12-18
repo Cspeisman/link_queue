@@ -8,7 +8,7 @@ Welcome Home
 				<p><%= friend.username %></p>
 		<% end %>
 
-		<% if @request %>
+		<% if !@requests.nil? %>
 			<% @requests.each do |request|%>
 				<%=  request.username %>
 				<%= link_to "Accept", create_friendship_path(:friend_id => request.id), :method => :post  %>
