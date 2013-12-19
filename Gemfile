@@ -35,6 +35,11 @@ end
 gem 'bcrypt-ruby'
 gem 'faker', '1.2.0'
 
+gem "rspec-rails", :group => [:test, :development]
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
