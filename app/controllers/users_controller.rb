@@ -17,8 +17,13 @@ class UsersController < ApplicationController
 
 	def search
 		if request.post?
-			@users = User.search(params[:username])
-			render 'show'
+			if params[:username].empty?
+				flash[:notice] = "Please specify a user to search"
+				redirect_to users_search_path
+			else
+				@users = User.search(params[:username])
+				render 'show'
+			end
 		end
 	end
 

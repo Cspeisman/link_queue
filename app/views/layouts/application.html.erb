@@ -8,10 +8,11 @@
 </head>
 <body>
 
-<div id="user_name">
+<div id="home_nav">
 	<% if current_user %>
-	  Logged in as <%= current_user.username %>
+	  Welcome <%= current_user.username %>
 	  <%= link_to "Log Out", log_out_path %>
+	  <%= link_to "Home", root_path %>
 	<% else %>
 		<%= link_to "Sign up", sign_up_path %>
 		<%= link_to "log in", log_in_path  %>

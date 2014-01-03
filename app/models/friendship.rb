@@ -1,7 +1,8 @@
 class Friendship < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :friend, :class_name => "User"
-	
+	validates :user_id, :friend_id, presence: true
+
 	def accept_friendship
 		update(friendship_accepted: true)
 	end
