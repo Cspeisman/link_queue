@@ -4,7 +4,7 @@ LinkQueue::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  post 'home/create-friendship/' => 'home#create_friendship', :as => 'create_friendship'
+  post 'home/create-friendship/' => 'friendship#create_friendship', :as => 'create_friendship'
   get 'users/search' => 'users#search'
   post 'users/search' => 'users#search'
   post 'users/add' => 'users#add_friend', :as => 'add_friend'
@@ -14,8 +14,9 @@ LinkQueue::Application.routes.draw do
   get 'log_in' => 'sessions#new', :as => 'log_in'
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
   resources :sessions
-  
-  resources :frien
+  resources :friendship
+
+  resources :friends
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

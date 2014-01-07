@@ -7,11 +7,4 @@ class HomeController < ApplicationController
 			@requests = friend_requests.map {|x| User.find(x.friend_id)} if !friend_requests.empty?
 		end
 	end
-
-	def create_friendship
-		friend_id = params[:friend_id]
-		friendship = Friendship.where(user_id: current_user.id, friend_id: friend_id).first
-		friendship.accept_friendship
-		redirect_to root_url
-	end
 end

@@ -5,7 +5,7 @@ Welcome Home
 
 	<div>
 		<% @friends.each do |friend| %>
-				<p><%= friend.username %></p>
+				<p><%= link_to friend.username, controller: "friendship", action: "fucker" %></p>
 		<% end %>
 
 		<% if !@requests.nil? %>

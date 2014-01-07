@@ -1,10 +1,13 @@
 class Friendship < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :friend, :class_name => "User"
+	has_many :links
+	
 	validates :user_id, :friend_id, presence: true
 
-	def accept_friendship
-		update(friendship_accepted: true)
+	def self.accept_friendship(user_id, friend_id)
+		where(user_id: user_id, friend_id: friend_id).first.update(friendship_accepted: true)
+		Friendship.new(user_id: friend_id, friend_id: user_id, friendship_accepted: true).save
 	end
 
 	def create
