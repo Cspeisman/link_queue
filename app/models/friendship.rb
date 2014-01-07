@@ -26,4 +26,8 @@ class Friendship < ActiveRecord::Base
 		flashp[:notice] = "Successfully destroyed friendship"
 		redirect_to root_url
 	end
+
+	def self.find(user,friend)
+		where(user_id: user, friend_id: friend).first
+	end
 end

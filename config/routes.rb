@@ -15,8 +15,8 @@ LinkQueue::Application.routes.draw do
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
   resources :sessions
   resources :friendship
-
   resources :friends
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
