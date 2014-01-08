@@ -4,7 +4,6 @@ LinkQueue::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  post 'home/create-friendship/' => 'friendship#create_friendship', :as => 'create_friendship'
   get 'users/search' => 'users#search'
   post 'users/search' => 'users#search'
   post 'users/add' => 'users#add_friend', :as => 'add_friend'

@@ -1,17 +1,19 @@
-Welcome Home
+<h2>Welcome Home</h2>
 	<div>
 	  <%= link_to "Find users", users_search_path  %>
 	</div>
 
-	<div>
+	<div class='friend-list'>
 		<% @friends.each do |friend| %>
 				<p><%= link_to friend.username, controller: 'friendships', action:'show', friend_id: friend.id %></p>
 		<% end %>
+	</div>
 
+	<div class='pending-friends'>
 		<% if !@requests.nil? %>
 			<% @requests.each do |request|%>
 				<%=  request.username %>
-				<%= link_to "Accept", create_friendship_path(:friend_id => request.id), :method => :post  %>
+				<%= link_to "Accept", friendships_path(:friend_id => request.id), :method => :post  %>
 			<% end %>
 		<% end %>
 	</div>

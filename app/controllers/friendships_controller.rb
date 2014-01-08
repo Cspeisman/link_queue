@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
 	
-	def create_friendship
+	def create
 		friend_id = params[:friend_id]
 		# friendship = Friendship.where(user_id: current_user.id, friend_id: friend_id).first
 		Friendship.accept_friendship(current_user.id, friend_id)
@@ -8,7 +8,12 @@ class FriendshipsController < ApplicationController
 	end
 
 	def show
-		@friendship = Friendship.find_by_users(current_user.id, params[:friend_id]) if params[:friend_id]
+		params[:friend_id] ? @friendship = find_friendship(params[:friend_id]) : @friendship = Friendship.find(params[:id])
 	end
 
+	private
+
+	def find_friendship(friend_id)
+		Friendship.find_by_users(current_user.id, params[:friend_id])
+	end
 end
