@@ -27,7 +27,7 @@ class Friendship < ActiveRecord::Base
 		redirect_to root_url
 	end
 
-	def self.find(user,friend)
+	def self.find_by_users(user,friend)
 		where(user_id: user, friend_id: friend).first
 	end
 end
