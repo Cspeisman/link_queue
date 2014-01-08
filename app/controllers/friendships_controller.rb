@@ -1,4 +1,4 @@
-class FriendshipController < ApplicationController
+class FriendshipsController < ApplicationController
 	
 	def create_friendship
 		friend_id = params[:friend_id]
@@ -8,7 +8,7 @@ class FriendshipController < ApplicationController
 	end
 
 	def show
-		@friendship = Friendship.find(current_user.id, params[:friend_id])
+		@friendship = Friendship.find_by_users(current_user.id, params[:friend_id]) if params[:friend_id]
 	end
 
 end
