@@ -6,7 +6,7 @@ LinkQueue::Application.routes.draw do
   root 'home#index'
   get 'users/search' => 'users#search'
   post 'users/search' => 'users#search'
-  post 'users/add' => 'users#add_friend', :as => 'add_friend'
+  post 'users/add' => 'users#add_friend', as: 'add_friend'
   get 'sign_up' => 'users#new', :as => 'sign_up'
   resources :users
 
@@ -14,12 +14,14 @@ LinkQueue::Application.routes.draw do
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
   resources :sessions
   
+  get 'friendship/find/:friend_id' => 'friendships#find_friendship', as: "find_friendship" 
   resources :friendships do 
     resources :links,  only: [:create, :new]
   end
 
   resources :friends
-  get ':controller(/:action(/:id))'
+  
+  # get ':controller(/:action(/:id))'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
