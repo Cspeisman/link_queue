@@ -9,6 +9,7 @@ class FriendshipsController < ApplicationController
 
 	def show
 		params[:friend_id] ? @friendship = find_friendship(params[:friend_id]) : @friendship = Friendship.find(params[:id])
+		@links = @friendship.links
 	end
 
 	private

@@ -1,1 +1,4 @@
-<h1>Here is your friendship with <%= "#{@friendship.friend_id}" %></h1>
+<h1>Here is your friendship with <%= "#{@friendship.id}" %></h1>
+<% @links.each do |link| %>
+	<li><a href="<%= link.url %>" target="_blank" ><%= link.url %></a></li>
+<% end %>

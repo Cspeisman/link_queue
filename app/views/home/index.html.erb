@@ -10,7 +10,7 @@
 	</div>
 
 	<div class='pending-friends'>
-		<% if !@requests.nil? %>
+		<% if !@requests.nil? %>e
 			<% @requests.each do |request|%>
 				<%=  request.username %>
 				<%= link_to "Accept", friendships_path(:friend_id => request.id), :method => :post  %>
