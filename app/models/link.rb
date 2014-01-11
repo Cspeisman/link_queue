@@ -1,7 +1,7 @@
 class Link < ActiveRecord::Base
 	belongs_to :friendship
 	validates :friendship_id, presence: true
-	validates :url, format: { with: /https?:\/\/www.[\S]+/,
+	validates :url, format: { with: /https?:\/\/[\S]+/,
     message: "This does not appear to be a valid URL" }
 
 	def self.link_allowed?(user_id, friend_id)
