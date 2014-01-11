@@ -1,0 +1,14 @@
+<% if @link.errors.any? %>
+	<% @link.errors.each do |key,value| %>
+		<li><%= "#{key} - #{value}"  %></li>
+	<% end %>
+<% end %>
+<%= form_for([@friendship, @friendship.links.build]) do |f|  %>
+	<p>
+		<%= f.label :url %>
+		<%= f.text_field :url  %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
