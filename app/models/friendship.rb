@@ -30,4 +30,8 @@ class Friendship < ActiveRecord::Base
 	def self.find_by_users(user,friend)
 		where(user_id: user, friend_id: friend).first
 	end
+
+	def users_friendship?(user_id)
+		self.user_id == user_id
+	end
 end
