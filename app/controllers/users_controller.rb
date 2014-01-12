@@ -34,14 +34,6 @@ class UsersController < ApplicationController
 
 	private
 
-	def authorize
-		if !current_user
-      flash[:error] = "You must be logged in to access this section"
-      redirect_to log_in_path
-    end
-	end
-
-
 	def user_params
 		params.require(:user).permit(:username, :password)
 	end

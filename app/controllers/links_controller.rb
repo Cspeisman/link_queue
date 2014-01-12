@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+	before_filter :authorize
+
 	def new
 		@friendship = Friendship.find(params[:friendship_id])
 		@link = Link.new
