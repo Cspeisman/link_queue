@@ -9,12 +9,10 @@ class FriendshipsController < ApplicationController
 	end
 
 	def show
-		@links = {}
+		@links = []
 		@friendship = Friendship.find(params[:id])
-		@links[:user_links] = @friendship.links
-		@links[:friends_links] = Friendship.find_by_users(@friendship.friend_id, @friendship.user_id).links
-		p "HERE ARE YOUR FUCKING LINKS"
-		p @links
+		@links << Link.find_by_friendship_id(@friendship.id)
+		@links << Link.find_by_friendship_id(Friendship.find_by_users(@friendship.friend_id, @friendship.user_id).id)
 		redirect_to root_path if !@friendship.users_friendship?(current_user.id)
 	end
 
