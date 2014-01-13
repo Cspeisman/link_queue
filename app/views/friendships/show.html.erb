@@ -1,5 +1,16 @@
 <h1>Here is your friendship with <%= "#{@friendship.id}" %></h1>
-<% @links.each do |link| %>
-	<li><a href="<%= link.url %>" target="_blank" ><%= link.url %></a></li>
+<h2>Your Links - </h2>
+<p>
+
+
+<% @links.each do |key,value|%>
+	<% value.each do |link| %>
+		<li><a href="<%= link.url %>" target="_blank" ><%= link.url %></a> - <%= link.created_at.strftime("%m/%d/%Y")  %></li>
+	<% end %>
 <% end %>
+
+
+
+
+</p>
 <%= link_to "Add a link", new_friendship_link_path(@friendship)%>
