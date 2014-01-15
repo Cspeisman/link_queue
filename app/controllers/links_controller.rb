@@ -18,7 +18,7 @@ class LinksController < ApplicationController
 
 	def destroy
 		@friendship = Friendship.find(params[:friendship_id])
-		link = @friendship.links.find(params[:id].to_i)
+		link = @friendship.links.find(params[:id])
 		link.destroy
 		redirect_to friendship_path(@friendship)
 	end
