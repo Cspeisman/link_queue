@@ -16,7 +16,7 @@ LinkQueue::Application.routes.draw do
   
   get 'friendship/find/:friend_id' => 'friendships#find_friendship', as: "find_friendship" 
   resources :friendships do 
-    resources :links,  only: [:create, :new]
+    resources :links,  only: [:create, :new, :destroy]
   end
 
   resources :friends

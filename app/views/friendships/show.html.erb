@@ -2,7 +2,11 @@
 <h2>Your Links</h2>
 <p>
 	<% @links.each do |link| %>
-			<li><a href="<%= link.url %>" target="_blank" ><%= link.url %></a> - <%= link.created_at.strftime("%m/%d/%Y")  %></li>
+			<li><a href="<%= link.url %>" target="_blank" ><%= link.url %></a> - <%= link.created_at.strftime("%m/%d/%Y")  %>
+			<% if @friendship.id == link.friendship_id %>
+				<%= link_to 'Destroy', friendship_link_path(@friendship, link), method: :delete,  data: { confirm: 'Are you sure?' } %>
+			<% end %>
+		</li>
 	<% end %>
 </p>
 <%= link_to "Add a link", new_friendship_link_path(@friendship)%>
