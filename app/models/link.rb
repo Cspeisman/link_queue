@@ -1,5 +1,6 @@
 class Link < ActiveRecord::Base
 	belongs_to :friendship
+	has_many :comments
 	validates :friendship_id, presence: true
 	validates :url, format: { with: /https?:\/\/[\S]+/,
     message: "This does not appear to be a valid URL" }

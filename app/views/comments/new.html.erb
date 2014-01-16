@@ -1,0 +1,9 @@
+<%= form_for([@link, @link.comments.build]) do |f|  %>
+	<p>
+		<%= f.label :message %>
+		<%= f.text_field :message  %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

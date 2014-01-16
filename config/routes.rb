@@ -18,6 +18,10 @@ LinkQueue::Application.routes.draw do
   resources :friendships do 
     resources :links,  only: [:create, :new, :destroy]
   end
+  
+  resources :links do
+    resources :comments, shallow: true
+  end
 
   resources :friends
   
