@@ -1,13 +1,17 @@
 <h1>Here is your friendship with <%= "#{@friendship.id}" %></h1>
-<h2>Your Links</h2>
-<p>
-	<% @links.each do |link| %>
-			<li><a href="<%= link.url %>" target="_blank" ><%= link.url %></a> - <%= link.created_at.strftime("%m/%d/%Y")  %>
-			<% if @friendship.id == link.friendship_id %>
-				<%= link_to 'Destroy', friendship_link_path(@friendship, link), method: :delete,  data: { confirm: 'Are you sure?' } %>
-			<% end %>
-			<%= link_to 'Comments', link_comments_path(link)  %>
-		</li>
-	<% end %>
-</p>
+
+<h2>Links</h2>
+	<div class="link-list">
+		<% @links.each do |link| %>
+			<div class="link">
+				<% if @friendship.id == link.friendship_id %>
+					<%= link_to 'Destroy', friendship_link_path(@friendship, link), method: :delete,  data: { confirm: 'Are you sure?' }, class: 'link-delete' %>
+				<% end %>
+				<div class="date"><%= link.created_at.strftime("%m/%d/%Y")  %></div>
+					<div class="url"><a href="<%= link.url %>" target="_blank" ><%= link.url %></a></div>
+				<%= link_to 'Comments', link_comments_path(link), class: 'comment-link'  %>
+			</div>
+		<% end %>
+	</div>
+
 <%= link_to "Add a link", new_friendship_link_path(@friendship)%>

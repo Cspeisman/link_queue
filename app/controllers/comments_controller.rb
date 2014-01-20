@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 	def index
 		@link = Link.find(params[:link_id])
 		@comments = @link.comments
+		render layout: false if request.xhr?
 	end
 
 	def create
