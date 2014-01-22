@@ -1,8 +1,8 @@
 h2 {
-margin: 10px 0 0px 30px;
-padding: 10px 0;
-border-bottom: 1px solid #D1D1D1;
-width: 526px;
+	margin: 10px 0 0px 30px;
+	padding: 10px 0;
+	border-bottom: 1px solid #D1D1D1;
+	width: 526px;
 }
 
 div{
@@ -47,11 +47,11 @@ div{
 }
 
 .comment-link {
-	background: url('arrows.jpg')no-repeat 0 10px;
-	float: right;
+	background: url('arrows.jpg')no-repeat -39px -4px;
 	display: inline-block;
-	width: 23px;
-	height: 10px;
-	margin: auto;
-	text-indent: 99999px
+	text-indent: 999999px;
+	width: 25px;
+	float: right;
+	margin-right: -22px;
+	margin-top: -19px;
 }
