@@ -1,29 +1,43 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>LinkQueue</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<div id="home_nav">
-	<% if current_user %>
-	  Welcome <%= current_user.username %>
-	  <%= link_to "Log Out", log_out_path %>
-	  <%= link_to "Home", root_path %>
-	<% else %>
-		<%= link_to "Sign up", sign_up_path %>
-		<%= link_to "log in", log_in_path  %>
-	<% end %>
-</div>
+    <title>Link Queue</title>
 
-<% flash.each do |name, msg| %>
-	<%= content_tag :div, msg, :id => "flash_#{name}"  %>
-<% end %>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
+    <div class="contain-to-grid">
+      <nav class="top-bar" >
+        <section class='top-bar-section'>
+          <% if current_user %>
+          <ul class='right'>
+            <li><%= link_to "Log Out", log_out_path %></li>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Find users", users_search_path %></li>
+          </ul>
+          <% else %>
+          <ul class='left'>
+            <li><%= link_to "Sign up", sign_up_path %></li>
+            <li><%= link_to "log in", log_in_path  %></li>
+          </ul>
+          <% end %>
+        </section>
+      </nav>
+    </div>
 
-</body>
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}"  %>
+    <% end %>
+
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

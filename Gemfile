@@ -35,6 +35,7 @@ end
 
 gem 'bcrypt-ruby'
 gem 'faker', '1.2.0'
+gem 'foundation-rails'
 
 gem "rspec-rails", :group => [:test, :development]
 group :test do

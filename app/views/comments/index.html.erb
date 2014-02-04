@@ -1,5 +1,8 @@
-<% @comments.each do |comment| %>
-	<li><%= comment.message %></li>
-<% end %>
-
+<% if @comments.blank? %>
+	<div class="message"> No comments yet</div>
+<% else %>
+	<% @comments.each do |comment| %>
+		<li><%= comment.message %></li>
+	<% end %>
+<% end  %>
 <%= render 'new' %>
