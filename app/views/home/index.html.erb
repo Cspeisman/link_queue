@@ -1,13 +1,8 @@
-<h2>Welcome Home</h2>
-	<div>
-	  <%= link_to "Find users", users_search_path  %>
-	</div>
-
-	<div class='friend-list'>
-		<% @friends.each do |friend| %>
-				<p><%= link_to friend.username, find_friendship_path(friend.id) %></p>
-		<% end %>
-	</div>
+<div class='row'>
+	<h2>Welcome Home</h2>	
+	<% @friends.each do |friend| %>
+			<li><%= link_to friend.username, find_friendship_path(friend.id) %></li>
+	<% end %>
 
 	<div class='pending-friends'>
 		<% if !@requests.nil? %>e
@@ -17,3 +12,4 @@
 			<% end %>
 		<% end %>
 	</div>
+</div>

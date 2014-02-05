@@ -1,5 +1,8 @@
-<%= form_tag('/users/search', method: 'post')	 do %>
-		<%= text_field_tag(:username) %>
-		<%= submit_tag("Search")  %>
-<% end %>
-  
+<div class='row'>
+	<div class='large-4 small-9 search-form'>
+		<%= form_tag('/users/search', method: 'post')	 do %>
+				<%= text_field_tag :username, nil, placeholder: 'Search for user..' %>
+				<%= submit_tag("Search")  %>
+		<% end %>
+	</div>
+</div>

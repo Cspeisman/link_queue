@@ -1,12 +1,11 @@
-<h1>Log in</h1>
-
 <div class='row'>
+	<h1 class='subheader'>Log in</h1>
 	<%= form_tag sessions_path do %>
-		<div class='large-4'>
+		<div class='large-4 small-9'>
 			<%= label_tag :username %>
 			<%= text_field_tag :username, params[:username] %>
 		</div>
-		<div class='large-4'>
+		<div class='large-4 small-9'>
 			<%= label_tag :password %>
 			<%= password_field_tag :password  %>
 		</div>	

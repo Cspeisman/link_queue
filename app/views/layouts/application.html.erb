@@ -12,32 +12,31 @@
   </head>
 
   <body>
-    <div class="contain-to-grid">
-      <nav class="top-bar" >
-        <section class='top-bar-section'>
-          <% if current_user %>
+    <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="/">Link Queue</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+        </ul>
+        <section class="top-bar-section">
           <ul class='right'>
-            <li><%= link_to "Log Out", log_out_path %></li>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Find users", users_search_path %></li>
+            <% if current_user %>
+              <li><%= link_to "Log Out", log_out_path %></li>
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Find users", users_search_path %></li>
+            <% else %>
+              <li><%= link_to "Sign up", sign_up_path %></li>
+              <li><%= link_to "Log in", log_in_path  %></li>
+            <% end %>
           </ul>
-          <% else %>
-          <ul class='left'>
-            <li><%= link_to "Sign up", sign_up_path %></li>
-            <li><%= link_to "log in", log_in_path  %></li>
-          </ul>
-          <% end %>
         </section>
       </nav>
     </div>
 
-
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}"  %>
-    <% end %>
-
-
-    <%= yield %>
+    <div class='content'>
+      <%= yield %>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

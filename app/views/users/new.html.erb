@@ -1,6 +1,5 @@
-<h1>Sign Up</h1>
-
 <div class='row'>
+	<h1 class='subheader'>Sign Up</h1>
 	<%= form_for @user do |f|  %>
 		<% if @user.errors.any? %>
 			<div class="error_message">
@@ -13,11 +12,11 @@
 			</div>
 		<% end %>
 
-		<div class='large-4'>
+		<div class='large-4 small-9'>
 			<%= f.label :username  %>
 			<%= f.text_field :username  %>
 		</div>
-		<div class='large-4'>
+		<div class='large-4 small-9'>
 			<%= f.label :password  %>
 			<%= f.password_field :password  %>
 		</div>
