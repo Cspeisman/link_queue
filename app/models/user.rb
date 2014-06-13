@@ -31,6 +31,6 @@ class User < ActiveRecord::Base
   end
 
   def self.search(username)
-    where("username LIKE '%#{username}%'")
+    where("username LIKE :query", query: '%#{username}%')
   end
 end
